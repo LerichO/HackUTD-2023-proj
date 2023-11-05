@@ -11,33 +11,30 @@ Original file is located at
 #!unzip /content/HomeBuyerDat.zip > /dev/null
 #!rm /content/HomeBuyerDat.zip > /dev/null
 
-import pandas as pd
-home_buyer_df = pd.read_csv("HomeBuyerDat.csv")
-home_buyer_df.head(5)
+import pandas
+# home_buyer_df = pandas.read_csv("HomeBuyerDat.csv")
+# home_buyer_df.head(5)
 
-#score from 0-1 where 0 is a rejection and 1 is an approval
-def calc_score(id, df):
-  """
-  Given a user ID, calculate the score that determines their approval or rejection.
-  Input:
-    id - int
-    df - pandas dataframe
-  Output:
-    score - int from 0 to 1
-  """
-
-def calc_LTV(id, df):
+def calc_LTV(user_data, df):
   """
   Given a user ID, calculate their LTV.
   Input:
-    id - int
+    user_data - pandas dataframe
     df - pandas dataframe
   Output:
     ltv - calculated ltv in decimal form
     pmi - pmi in decimal form if necessary, else 0.0
   """
-  house_value = df.loc[id-1]['AppraisedValue']
-  down_payment = df.loc[id-1]['DownPayment']
+
+  # need to redefine df.loc[id-1] as a 'user' built from input of the questionnaire
+  house_value = int(user_data['AppraisedValue'][0])
+
+  # debugging print statement
+  print("house_value:")
+  print(house_value)
+  down_payment = int(user_data['DownPayment'][0])
+  print("DownPayment:")
+  print(down_payment)
 
   ltv_decimal = ((house_value - down_payment) / house_value)
   pmi_decimal = .01 if ltv_decimal >= .8 else 0.0
@@ -45,12 +42,12 @@ def calc_LTV(id, df):
   return ltv_decimal, pmi_decimal
 
 #example
-ltv_dec, pmi_dec = calc_LTV(3, home_buyer_df)
-ltv_dec, pmi_dec
+# ltv_dec, pmi_dec = calc_LTV(3, home_buyer_df)
+# ltv_dec, pmi_dec
 
-def calc_DTI(id, pmi, df):
+def calc_DTI(user_data, pmi, df):
   """
-  Given a user ID and PMI, calculate their DTI.
+  Given a user input data and PMI, calculate their DTI.
   Input:
     id - int
     pmi - float (decimal form)
@@ -58,31 +55,31 @@ def calc_DTI(id, pmi, df):
   Output:
     dti
   """
-  individual = df.loc[id-1]
-  mortgage = individual['MonthlyMortgagePayment']
-  mortgage += (pmi * individual['AppraisedValue']) / 12
-  expenses = individual['CreditCardPayment'] + individual['CarPayment'] + individual['StudentLoanPayments'] + mortgage
+  mortgage = int(user_data['MonthlyMortgagePayment'][0])
+  mortgage += (pmi * int(user_data['AppraisedValue'])) / 12
+  expenses = int(user_data['CreditCardPayment'][0]) + int(user_data['CarPayment'][0]) + int(user_data['StudentLoanPayments'][0]) + mortgage
 
-  return expenses / individual['GrossMonthlyIncome']
+  return expenses / int(user_data['GrossMonthlyIncome'][0])
 
-dti_dec = calc_DTI(3, pmi_dec, home_buyer_df)
-dti_dec
+# example
+# dti_dec = calc_DTI(3, pmi_dec, home_buyer_df)
+# dti_dec
 
-def approve_func(id, df):
+def approve_func(user_data, df):
   """
   Given a user ID and corresponding LTV and DTI, approve or deny their loan.
   Input:
-    id - int
+    user_data - pandas df
     df - pandas df
   Output:
     score - int where 0 is a rejection and 1 is an approval
     reasons - list of strings with reason labels
   """
   reasons = []
-  ltv, pmi = calc_LTV(id, df)
-  dti = calc_DTI(id, pmi, df)
+  ltv, pmi = calc_LTV(user_data, df)
+  dti = calc_DTI(user_data, pmi, df)
 
-  if df.loc[id-1]['CreditScore'] < 640:
+  if int(user_data['CreditScore'][0]) < 640:
     reasons.append("creditscore")
     return 0, reasons
 
@@ -107,5 +104,5 @@ def approve_func(id, df):
   return 0 if score < .5 else 1, reasons
 
 #example
-approve_func(12, home_buyer_df)
+# approve_func(12, home_buyer_df)
 

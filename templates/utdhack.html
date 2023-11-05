@@ -15,6 +15,12 @@
 	<body class="tab1">
 
 		<header>	
+
+			<div class="branding">
+						<!--<h2>home<div class="design">A</div>loan</h2> -->
+						<img src="../static/img/homeAloan.png" style="width: 230px">
+					</div>
+
 			<div class="navbar">
 				<nav>
 					<ul>
@@ -26,16 +32,16 @@
 		</header>
 
 		<div class="intro">
-			<h1>Can I move out now?</h1>
+			<h1>can i move out now?</h1>
 		</div>
 
 		<div class="survey">
-			<form action="/example.html" method="POST">
+			<form action="/results" method="POST">
 
 			<div class="q1">
-				<label for="income">Gross Monthly Income:</label>
+				<label for="income">Gross Monthly Income ($):</label>
 				<br><br>
-				<input type="text" name="gross-income" id="income" value="$" pattern="[0-9]{1-9}" required>
+				<input type="text" name="gross-income" id="income" pattern="[0-9]{1-9}" required>
 				<br>
 				<br>
 				<div class="dropdown" style="float:right">
@@ -48,9 +54,9 @@
 			</div>
 
 			<div class="q2">
-				<label for="car">Monthly Car Payment:</label>
+				<label for="car">Monthly Car Payment ($):</label>
 				<br><br>
-				<input type="text" name="monthly-car" id="car" value="$" pattern="[0-9]{1-9}">
+				<input type="text" name="monthly-car" id="car" pattern="[0-9]{1-9}">
 				<br>
 				<br>
 				<div class="dropdown" style="float:right;">
@@ -63,9 +69,9 @@
 			</div>
 
 			<div class="q3">
-				<label for="card">Monthly Credit Card Payment:</label>
+				<label for="card">Monthly Credit Card Payment ($):</label>
 				<br><br>
-				<input type="text" name="credit-card" id="card" value="$" pattern="[0-9]{1-9}" required>
+				<input type="text" name="credit-card" id="card" pattern="[0-9]{1-9}" required>
 				<br>
 				<br>
 				<div class="dropdown" style="float:right;">
@@ -78,9 +84,9 @@
 			</div>
 
 			<div class="q4">
-				<label for="loan">Student Loan Payment:</label>
+				<label for="loan">Student Loan Payment ($):</label>
 				<br><br>
-				<input type="text" name="student-loan" id="loan" value="$" pattern="[0-9]{1-9}">
+				<input type="text" name="student-loan" id="loan" pattern="[0-9]{1-9}">
 				<br>
 				<br>
 				<div class="dropdown" style="float:right;">
@@ -93,9 +99,9 @@
 			</div>
 
 			<div class="q5">
-				<label for="home">Home Appraised Value:</label>
+				<label for="home">Home Appraised Value ($):</label>
 				<br><br>
-				<input type="text" name="home-value" id="home" value="$" pattern="[0-9]{1-9}" required>
+				<input type="text" name="home-value" id="home" pattern="[0-9]{1-9}" required>
 				<br>
 				<br>
 				<div class="dropdown" style="float:right;">
@@ -108,9 +114,9 @@
 			</div>
 
 			<div class="q6">
-				<label for="mortgage">Estimated Monthly Mortgage Payment:</label>
+				<label for="mortgage">Estimated Monthly Mortgage Payment ($):</label>
 				<br><br>
-				<input type="text" name="monthly-mortgage" id="mortgage" value="$" pattern="[0-9]{1-9}" required>
+				<input type="text" name="monthly-mortgage" id="mortgage" pattern="[0-9]{1-9}" required>
 				<br>
 				<br>
 				<div class="dropdown" style="float:right;">
@@ -123,9 +129,9 @@
 			</div>
 
 			<div class="q7">
-				<label for="down">Down Payment Amount:</label>
+				<label for="down">Down Payment Amount ($):</label>
 				<br><br>
-				<input type="text" name="down-payment" id="down" value="$" pattern="[0-9]{1-9}" required>
+				<input type="text" name="down-payment" id="down" pattern="[0-9]{1-9}" required>
 				<br>
 				<br>
 				<div class="dropdown" style="float:right;">
@@ -148,6 +154,27 @@
 				  <div class="dropdown-content">
 				  <p>
 				  A credit score is a number that shows how financially responsible someone is based on their history. Lenders use it to judge the risk of giving them credit or loans, with higher scores meaning less risk.</p>
+				  </div>
+				</div>
+			</div>
+
+			<div class="q9">
+				<p>How Confident Are You In Your Financial Knowledge?</p>
+				<br>
+				<input type="radio" name="literacy" id="not_c" value="not-confident">
+				<label for="not_c">not confident</label>
+				<br>
+				<input type="radio" name="literacy" id="somewhat_c" value="somewhat-confident">
+				<label for="somewhat_c">somewhat confident</label>
+				<br>
+				<input type="radio" name="literacy" id="very_c" value="very-confident">
+				<label for="very_c">very confident</label>
+				<br>
+				<div class="dropdown" style="float:right;">
+				  <button class="dropbtn">?</button>
+				  <div class="dropdown-content">
+				  <p>
+				  Financial literacy is the ability to understand and manage one's personal finances effectively, including concepts like budgeting, saving, investing, and debt management. It empowers individuals to make informed financial decisions and achieve their long-term financial goals.</p>
 				  </div>
 				</div>
 			</div>

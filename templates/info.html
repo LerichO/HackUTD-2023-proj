@@ -24,7 +24,16 @@
 		</header>
 
 		<div class="intro">
-			<h1>My Statistics</h1>
+			<h1>my evluation</h1>
+		</div>
+
+		<div class="results">
+			<h1 id="result">{{result}}</h1>
+			{% for item in range(evaluations |length) %}
+			<p id="reason">
+				Some things to look out for: {{evaluations[item]}}
+			</p>
+			{% endfor %}
 		</div>
 
 	</body>

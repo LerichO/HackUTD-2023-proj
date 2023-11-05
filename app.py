@@ -2,9 +2,11 @@
 # import proper libraries
 from flask import Flask, render_template, request
 from flask_pymongo import PyMongo # for later
+import pandas
 import model
 import math
 import os
+import loan_approval
 
 # initialization
 app = Flask(__name__)
@@ -26,27 +28,6 @@ downPaymentAmount = 0
 @app.route("/utdhack.html", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        # take in data from questionnare thing
-        # print message placeholder
-        print("Nice")
-
-        grossMonthlyIncome = request.form["gross-income"]
-        monthlyCarPayment = request.form["monthly-car"]
-        monthlyCreditCardPayment = request.form["credit-card"]
-        studentLoanPayment = request.form["student-loan"]
-        homeAppraisedValue = request.form["home-value"]
-        estMonthlyMortgagePayment = request.form["monthly-mortgage"]
-        downPaymentAmount = request.form["down-payment"]
-        creditScore = request.form["credit-score"]
-        
-        print(grossMonthlyIncome)
-        print(monthlyCarPayment)
-        print(monthlyCreditCardPayment)
-        print(studentLoanPayment)
-        print(homeAppraisedValue)
-        print(estMonthlyMortgagePayment)
-        print(downPaymentAmount)
-        print(creditScore)
         return render_template("index.html")
     else:
         return render_template("utdhack.html")
@@ -61,7 +42,55 @@ def stats():
 # -- results from questionnaire
 @app.route("/results", methods=["GET", "POST"])
 def results():
-    return render_template("<p>Hello results page</p>")
+    # take in data from questionnare thing
+    user_data = {
+        'MonthlyMortgagePayment' : [request.form["monthly-mortgage"]],
+        'AppraisedValue' : [request.form["home-value"]],
+        'CreditCardPayment' : [request.form["credit-card"]],
+        'CarPayment' : [request.form["monthly-car"]],
+        'StudentLoanPayments' : [request.form["student-loan"]],
+        'GrossMonthlyIncome' : [request.form["gross-income"]],
+        'DownPayment' : [request.form["down-payment"]],
+        'CreditScore' : [request.form["credit-score"]]
+    }
+
+    # debugging, tracking memory
+    print(user_data["MonthlyMortgagePayment"][0])
+    print(user_data["AppraisedValue"][0])
+    print(user_data["CreditCardPayment"][0])
+    print(user_data["CarPayment"][0])
+    print(user_data["StudentLoanPayments"][0])
+    print(user_data["GrossMonthlyIncome"][0])
+    print(user_data["DownPayment"][0])
+    print(user_data["CreditScore"][0])
+
+    print("user_data")
+    print(request.form["monthly-mortgage"])
+    print(request.form["home-value"])
+    print(request.form["credit-card"])
+    print(request.form["monthly-car"])
+    print(request.form["student-loan"])
+    print(request.form["gross-income"])
+    print(request.form["down-payment"])
+    print(request.form["credit-score"])
+    user_df = pandas.DataFrame(user_data, index = [0])
+    home_buyer_df=pandas.read_csv("https://raw.githubusercontent.com/LerichO/HackUTD-2023-proj/main/labelled.csv")
+    home_buyer_df.drop(columns=['Approved', 'Reasons'])
+    print("user input accepted")
+
+    # run input data through loan_approval.py
+    score, evaluations = loan_approval.approve_func(user_df, home_buyer_df)
+    result = ""
+    if score == 0:
+        result = "Denied"
+    elif score == 1:
+        result = "Approved"
+    # return render_template("info.html", result, evaluations)
+    print("result:")
+    print(result)
+    print("evaluations")
+    print(evaluations)
+    return render_template("info.html", result = result, evaluations = evaluations)
 
 @app.route("/info.html", methods=["GET", "POST"])
 def info():

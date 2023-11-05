@@ -74,8 +74,43 @@ table {
   src: url('../fonts/roboto-mono-v23-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* playfair-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/playfair-display-v36-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/playfair-display-v36-latin-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* eb-garamond-600italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 600;
+  src: url('../fonts/eb-garamond-v27-latin-600italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* eb-garamond-700italic - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'EB Garamond';
+  font-style: italic;
+  font-weight: 700;
+  src: url('../fonts/eb-garamond-v27-latin-700italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+
 html {
-	background-color: #f7f1ea;
+	background-color: #f4ede4 !important;
 	background: url();
 	margin-bottom: 10px;
 }
@@ -84,7 +119,33 @@ html {
 
 
 
+
+
+.branding h2 {
+	float: left;
+	font-family: 'Playfair Display';
+  	font-style: normal;
+  	font-size: 2em;
+  	font-weight: 400;
+  	color: #80b471;
+  	margin-left: 30px;
+}
+
+
+
+
+.design {
+	font-family: 'EB Garamond';
+  	font-style: italic;
+  	font-weight: 600;
+}
+
 */
+
+.branding {
+	float: left;
+	margin-left: 30px;
+}
 
 header {
   background: #f7f1ea; 
@@ -167,12 +228,22 @@ input {
 
 
 
-.q1, .q2, .q3, .q4, .q5, .q6, .q7, .q8 {
+.q1, .q2, .q3, .q4, .q5, .q6, .q7, .q8, .q9 {
 	background-color: darkseagreen;
   	border-radius: 5px;
   	margin: 30px 460px;
   	padding: 50px 0;
   	box-shadow: -11px 11px 0px 2px  #5e9e5e;
+}
+
+.q9 p {
+	margin: 0 10px;
+}
+
+.q9 label {
+	font-size: 17px;
+  	font-style: normal;
+  	font-weight: 400;
 }
 
 footer {
@@ -238,6 +309,26 @@ button {
 
 .dropdown-content p {
 	font-family: 'Poppins';
+  	font-style: normal;
+  	font-weight: 500;
+  	font-size: 14px;
+}
+
+.results{
+  align-items: center;
+  text-align: center;
+}
+
+#result{
+  font-size: 50px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  padding-bottom: 30px;
+}
+
+#reason{
+  font-family: 'Poppins';
   	font-style: normal;
   	font-weight: 500;
   	font-size: 14px;
