@@ -1,7 +1,7 @@
 
 # import proper libraries
 from flask import Flask, render_template, request
-from flask_pymongo import PyMongo # for later
+# from flask_pymongo import PyMongo # for later
 import model
 import math
 import os
@@ -24,13 +24,13 @@ downPaymentAmount = 0
 # do we need the get request?
 @app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method() == "POST":
+    if request.method == "POST":
         # take in data from questionnare thing
         # print message placeholder
         print("Nice")
         return render_template("index.html")
     else:
-        return render_template("index.html")
+        return render_template("utdhack.html")
 
 # -- general stats from dataset --
 # eventually to rename or specialize this page
