@@ -76,6 +76,7 @@ table {
 
 html {
 	background-color: #f7f1ea;
+	background: url();
 	margin-bottom: 10px;
 }
 
@@ -89,6 +90,7 @@ header {
   background: #f7f1ea; 
   background: #2f2f2f;
   padding-top: 20px;
+  top: 0;
 }
 
 .navbar {
@@ -97,7 +99,7 @@ header {
   margin-left: auto;
   padding: 7px 0 20px 0; 
   text-align: right;
-  position: relative;
+  position: sticky;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
@@ -105,7 +107,7 @@ header {
 
 nav {
   margin-left: 200px;
-}
+ }
 
 nav li {
   display: inline;
@@ -117,7 +119,6 @@ nav a {
   font-size: 1.2em;
   color: #f7f1ea;
   padding: 10px 30px;
-
 }
 
 .navbar a:hover {
@@ -153,7 +154,7 @@ nav a {
 .sendbutt {
 	font-family: 'Roboto Mono';
   	font-style: normal;
-  	font-weight: 300;
+  	font-weight: 400;
   	font-size: 20px;
 }
 
@@ -164,9 +165,7 @@ input {
   	padding: 5px;
 }
 
-label {
-	padding-bottom: 10px;
-}
+
 
 .q1, .q2, .q3, .q4, .q5, .q6, .q7, .q8 {
 	background-color: darkseagreen;
@@ -184,4 +183,62 @@ footer {
   	font-size: 14px;
   	color: #305130;
   	margin: 50px 0 0 20px;
+}
+
+button {
+	font-family: 'Roboto Mono';
+  	font-style: normal;
+  	font-weight: 400;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 60px;
+  margin-right: 20px;
+  margin-bottom: 2px;
+}
+
+.dropdown {
+	position: relative;
+  	display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 330px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 6px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  padding: 10px;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.dropdown-content p {
+	font-family: 'Poppins';
+  	font-style: normal;
+  	font-weight: 500;
+  	font-size: 14px;
 }
