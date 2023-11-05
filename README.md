@@ -1,4 +1,8 @@
-# HackUTD-2023-proj
+# HomeAloan
+
+The rising generation new adults face growing challenges in understanding and preparing for the housing market; this app seeks to mitigate the issue. HomeAloan is a website that seeks to evaluate expense and income of end users and provide meaningful insight into their eligibility for home loans.
+
+By Laya Srinivas, Suvel Muttreja, Joie Lin, Lerich Osay
 
 structure of flask apps:
 
