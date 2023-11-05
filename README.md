@@ -10,7 +10,7 @@ flaskproject
 ├── readme.md - That's this file!
 ├── requirements.txt - Used for deployment to say what packages are needed.
 ├── runtime.txt - Ignore. Used for deployment.
-├── front-end - This is where we house assets like images and stylesheets.
+├── static - This is where we house assets like images and stylesheets.
 │   ├── css - Put stylesheets here.
 │   │   └── style.css
 │   └── images - Put images here.
