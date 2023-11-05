@@ -28,15 +28,20 @@ def index():
         # take in data from questionnare thing
         # print message placeholder
         print("Nice")
-        return render_templet("index.html")
+        return render_template("index.html")
     else:
         return render_template("index.html")
 
-# # eventually to rename this page or specialize it
-# @app.route("/stats", methods=["GET", "POST"])
-# def stats():
+# -- general stats from dataset --
+# eventually to rename or specialize this page
+@app.route("/stats", methods=["GET", "POST"])
+def stats():
+    return render_template("<p>Hello stats page</p>")
 
-
+# -- results from questionnaire
+@app.route("/results", methods=["GET", "POST"])
+def results():
+    return render_template("<p>Hello results page</p>")
 
 if __name__ == "__main__":
     app.run()
