@@ -1,7 +1,7 @@
 
 # import proper libraries
 from flask import Flask, render_template, request
-# from flask_pymongo import PyMongo # for later
+from flask_pymongo import PyMongo # for later
 import model
 import math
 import os
@@ -23,14 +23,34 @@ downPaymentAmount = 0
 # -- main page --
 # do we need the get request?
 @app.route("/", methods=["GET", "POST"])
+@app.route("/utdhack.html", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         # take in data from questionnare thing
         # print message placeholder
         print("Nice")
+
+        grossMonthlyIncome = request.form["gross-income"]
+        monthlyCarPayment = request.form["monthly-car"]
+        monthlyCreditCardPayment = request.form["credit-card"]
+        studentLoanPayment = request.form["student-loan"]
+        homeAppraisedValue = request.form["home-value"]
+        estMonthlyMortgagePayment = request.form["monthly-mortgage"]
+        downPaymentAmount = request.form["down-payment"]
+        creditScore = request.form["credit-score"]
+        
+        print(grossMonthlyIncome)
+        print(monthlyCarPayment)
+        print(monthlyCreditCardPayment)
+        print(studentLoanPayment)
+        print(homeAppraisedValue)
+        print(estMonthlyMortgagePayment)
+        print(downPaymentAmount)
+        print(creditScore)
         return render_template("index.html")
     else:
         return render_template("utdhack.html")
+
 
 # -- general stats from dataset --
 # eventually to rename or specialize this page
@@ -42,6 +62,10 @@ def stats():
 @app.route("/results", methods=["GET", "POST"])
 def results():
     return render_template("<p>Hello results page</p>")
+
+@app.route("/info.html", methods=["GET", "POST"])
+def info():
+    return render_template("info.html")
 
 if __name__ == "__main__":
     app.run()
