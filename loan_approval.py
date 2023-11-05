@@ -88,14 +88,14 @@ def approve_func(user_data, df):
   #if ltv in range 80-100, 20 possible values to scale up from .5 to 1
   if ltv >= .80:
    score -= (((ltv - .80)*100/20) ** 2)/100
-   reasons.append("ltv")
+   reasons.append("LTV")
   else:
     score += .25
 
   #if dti is over 43
   if dti > .43:
     score -= (((dti - .43)*100/57) ** 2)/100
-    reasons.append("dti")
+    reasons.append("DTI")
   else:
       score += .25
 

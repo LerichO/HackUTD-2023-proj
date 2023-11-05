@@ -40,7 +40,7 @@ def stats():
     return render_template("<p>Hello stats page</p>")
 
 # -- results from questionnaire
-@app.route("/results", methods=["GET", "POST"])
+@app.route("/info.html", methods=["GET", "POST"])
 def results():
     # take in data from questionnare thing
     user_data = {
