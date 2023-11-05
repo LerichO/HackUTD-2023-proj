@@ -2,6 +2,7 @@
 
 structure of flask apps:
 
+<pre>
 flaskproject
 ├── .gitignore - shows which files (like .pyc) for git to ignore.
 ├── app.py - This is the main file for our app.
@@ -16,3 +17,4 @@ flaskproject
 │       └── micropig.jpg
 └── templates - Put templates (views) in this folder.
     └── index.html - This will be the first template we render.
+</pre>
