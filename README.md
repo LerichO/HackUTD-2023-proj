@@ -16,9 +16,9 @@ flaskproject
 ├── runtime.txt - Ignore. Used for deployment.
 ├── static - This is where we house assets like images and stylesheets.
 │   ├── css - Put stylesheets here.
-│   │   └── style.css
+│   │   └── css files
 │   └── images - Put images here.
-│       └── micropig.jpg
+│       └── jpg and png files
 └── templates - Put templates (views) in this folder.
-    └── index.html - This will be the first template we render.
+    └── html documents
 </pre>
