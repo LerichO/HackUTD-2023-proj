@@ -321,6 +321,7 @@ button {
 
 #result{
   font-size: 50px;
+  text-align: center;
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
@@ -328,6 +329,8 @@ button {
 }
 
 #reason{
+  text-align: center;
+
   font-family: 'Poppins';
   	font-style: normal;
   	font-weight: 500;

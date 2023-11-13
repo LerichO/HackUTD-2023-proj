@@ -53,27 +53,10 @@ def results():
         'DownPayment' : [request.form["down-payment"]],
         'CreditScore' : [request.form["credit-score"]]
     }
-
-    # debugging, tracking memory
-    print(user_data["MonthlyMortgagePayment"][0])
-    print(user_data["AppraisedValue"][0])
-    print(user_data["CreditCardPayment"][0])
-    print(user_data["CarPayment"][0])
-    print(user_data["StudentLoanPayments"][0])
-    print(user_data["GrossMonthlyIncome"][0])
-    print(user_data["DownPayment"][0])
-    print(user_data["CreditScore"][0])
-
-    print("user_data")
-    print(request.form["monthly-mortgage"])
-    print(request.form["home-value"])
-    print(request.form["credit-card"])
-    print(request.form["monthly-car"])
-    print(request.form["student-loan"])
-    print(request.form["gross-income"])
-    print(request.form["down-payment"])
-    print(request.form["credit-score"])
+    
     user_df = pandas.DataFrame(user_data, index = [0])
+
+    # to replace this df definition with reference to MongoDB database upload
     home_buyer_df=pandas.read_csv("https://raw.githubusercontent.com/LerichO/HackUTD-2023-proj/main/labelled.csv")
     home_buyer_df.drop(columns=['Approved', 'Reasons'])
     print("user input accepted")
