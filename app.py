@@ -1,7 +1,8 @@
 
 # import proper libraries
 from flask import Flask, render_template, request
-from flask_pymongo import PyMongo # for later
+# from flask_pymongo import PyMongo # for later
+import jinja2;
 import pandas
 import model
 import math
@@ -11,6 +12,10 @@ import loan_approval
 # initialization
 app = Flask(__name__)
 
+# list of dictionary of attributes for each question in form in html front page template
+from_vars = {}
+
+# to be replaced with proper list / dictionary to store data to be sent to data frame
 monthlyCarPayment = 0
 studentLoanPayment = 0
 estMonthlyMortgagePayment = 0
