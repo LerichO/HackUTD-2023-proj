@@ -3,7 +3,7 @@
 
 The current generation of rising young adults face growing challenges in understanding and preparing for the housing market; this app seeks to mitigate that issue. HomeAloan is a website that seeks to evaluate the expenses and income of end users and provide meaningful insight into their eligibility for home loans.
 
-Web app developed by Laya Srinivas, Suvel Muttreja, Joie Lin, Lerich Osay during the HackUTD X: Golden Hour Hackathon
+Web app developed by Laya Srinivas, Suvel Muttreja, Joie Lin, Lerich Osay during the HackUTD X: Golden Hour Hackathon from November 4-5, 2023
 
 structure of flask app:
 
