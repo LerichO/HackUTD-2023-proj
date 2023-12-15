@@ -11,8 +11,8 @@ structure of flask app:
 homeAloan
 ├── .gitignore - shows which files (like .pyc) for git to ignore.
 ├── app.py - This is the main file for our app.
-├── loan_approval.py - This is where user input will be processed to determine if they are loan eligble
-├── suggestion_gpt.py - This is where our chatbot, powered by GPT, will be implemented
+├── loan_approval.py - This is where user input will be processed to determine if they are loan eligble.
+├── suggestion_gpt.py - This is where our chatbot, powered by GPT, will be implemented.
 ├── readme.md - That's this file!
 ├── requirements.txt - Used for deployment to say what packages are needed.
 ├── runtime.txt - Ignore. Used for deployment.
